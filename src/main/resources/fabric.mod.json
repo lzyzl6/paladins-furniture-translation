@@ -26,6 +26,9 @@
 ],
     "rei": [
       "com.unlikepaladin.pfm.compat.rei.PaladinFurnitureModREIPlugin"
+    ],
+    "emi": [
+      "com.unlikepaladin.pfm.compat.emi.PaladinFurnitureModEMIPlugin"
     ]
   },
   "mixins": [
