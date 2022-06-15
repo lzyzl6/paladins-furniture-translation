@@ -61,7 +61,7 @@ if (project.sandwichable_compatibility == "true") {
 		}
 	}
 	dependencies {
-		modCompileOnly "maven.modrinth:sandwichable:${project.sandwichable_version}"
+		modImplementation("maven.modrinth:sandwichable:${project.sandwichable_version}")
 		modCompileOnly("dev.lambdaurora:spruceui:${project.spruceui_version}")
 	}
 }
