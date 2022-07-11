@@ -1,5 +1,5 @@
 {
-  "dont_generate_book": true,
+  "dont_generate_book": "true",
   "name": "pfm.patchouli.guide_book.name",
   "landing_text": "pfm.patchouli.guide_book.landing_text",
   "version": 0,
