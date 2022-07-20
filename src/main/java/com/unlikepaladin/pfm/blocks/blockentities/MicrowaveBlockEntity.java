@@ -415,7 +415,7 @@ public class MicrowaveBlockEntity extends LockableContainerBlockEntity implement
         clientData.writeBlockPos(pos);
         // Then we'll send the packet to all the players
         watchingPlayers.forEach(player -> {
-                ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, PaladinFurnitureMod.MICROWAVE_UPDATE_PACKET_ID, clientData);
+                ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, NetworkRegistry.MICROWAVE_UPDATE_PACKET_ID, clientData);
             }
         );
     }
