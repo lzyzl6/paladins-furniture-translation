@@ -19,7 +19,6 @@ import java.util.Objects;
 public class NetworkRegistry {
     public static Identifier MICROWAVE_UPDATE_PACKET_ID = new Identifier(PaladinFurnitureMod.MOD_ID, "microwave_button_update");
     public static final Identifier MICROWAVE_ACTIVATE_PACKET_ID = new Identifier(PaladinFurnitureMod.MOD_ID, "microwave_activate");
-
     public static Identifier TOILET_USE_ID = new Identifier(PaladinFurnitureMod.MOD_ID, "toilet_use");
 
     public static void registerPackets() {
