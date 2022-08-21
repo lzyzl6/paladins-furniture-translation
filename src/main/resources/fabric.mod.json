@@ -43,7 +43,7 @@
     "fabric": "*",
     "minecraft": "1.18.1",
     "java": ">=17",
-    "cloth-config2": ">=6.2.62"
+    "cloth-config2": ">=6.2.57"
   },
   "suggests": {
     "patchouli": "*"
