@@ -72,12 +72,20 @@ public class Cutlery extends HorizontalFacingBlock implements Waterloggable {
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Direction dir = state.get(FACING);
-        return switch (dir) {
-            case WEST -> FACING_SOUTH;
-            case NORTH -> FACING_WEST;
-            case SOUTH -> FACING_EAST;
-            default -> FACING_NORTH;
-        };
+        switch (dir) {
+            case WEST: {
+                return FACING_SOUTH;
+            }
+            case NORTH: {
+                return FACING_WEST;
+            }
+            case SOUTH: {
+                return FACING_EAST;
+            }
+            default: {
+                return FACING_NORTH;
+            }
+        }
     }
 
     @Override

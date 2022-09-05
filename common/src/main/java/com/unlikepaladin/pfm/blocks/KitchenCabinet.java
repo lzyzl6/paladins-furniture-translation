@@ -112,25 +112,25 @@ public class KitchenCabinet extends HorizontalFacingBlock implements BlockEntity
         switch(shape) {
             case STRAIGHT:
                 switch (dir) {
-                    case NORTH -> {
+                    case NORTH:  {
                         if (open)
                             return STRAIGHT_OPEN;
                         else
                             return STRAIGHT;
                     }
-                    case SOUTH -> {
+                    case SOUTH:  {
                         if (open)
                             return STRAIGHT_OPEN_SOUTH;
                         else
                             return STRAIGHT_SOUTH;
                     }
-                    case EAST -> {
+                    case EAST:  {
                         if (open)
                             return STRAIGHT_OPEN_EAST;
                         else
                             return STRAIGHT_EAST;
                     }
-                    default -> {
+                    default: {
                         if (open)
                         return STRAIGHT_OPEN_WEST;
                     else
@@ -139,25 +139,25 @@ public class KitchenCabinet extends HorizontalFacingBlock implements BlockEntity
                 }
             case INNER_LEFT:
                 switch (dir) {
-                    case NORTH -> {
+                    case NORTH: {
                         if (open)
                             return INNER_CORNER_OPEN_WEST;
                         else
                             return INNER_CORNER_WEST;
                     }
-                    case SOUTH -> {
+                    case SOUTH: {
                         if (open)
                             return INNER_CORNER_OPEN_EAST;
                         else
                             return INNER_CORNER_EAST;
                     }
-                    case EAST -> {
+                    case EAST: {
                         if (open)
                             return INNER_CORNER_OPEN;
                         else
                             return INNER_CORNER;
                     }
-                    default -> {
+                    default: {
                         if (open)
                             return INNER_CORNER_OPEN_SOUTH;
                         else
@@ -166,25 +166,25 @@ public class KitchenCabinet extends HorizontalFacingBlock implements BlockEntity
                 }
             case INNER_RIGHT:
                 switch (dir) {
-                    case NORTH -> {
+                    case NORTH: {
                         if (open)
                         return INNER_CORNER_OPEN;
                     else
                         return INNER_CORNER;
                     }
-                    case SOUTH -> {
+                    case SOUTH: {
                         if (open)
                             return INNER_CORNER_OPEN_SOUTH;
                         else
                             return INNER_CORNER_SOUTH;
                     }
-                    case EAST -> {
+                    case EAST: {
                         if (open)
                             return INNER_CORNER_OPEN_EAST;
                         else
                             return INNER_CORNER_EAST;
                     }
-                    default -> {
+                    default: {
                         if (open)
                             return INNER_CORNER_OPEN_WEST;
                         else
@@ -194,25 +194,25 @@ public class KitchenCabinet extends HorizontalFacingBlock implements BlockEntity
 
             case OUTER_LEFT:
                 switch (dir) {
-                    case NORTH -> {
+                    case NORTH:  {
                         if (open)
                             return OUTER_CORNER_OPEN;
                         else
                             return OUTER_CORNER;
                     }
-                    case SOUTH -> {
+                    case SOUTH: {
                         if (open)
                             return OUTER_CORNER_OPEN_SOUTH;
                         else
                             return OUTER_CORNER_SOUTH;
                     }
-                    case EAST -> {
+                    case EAST: {
                         if (open)
                             return OUTER_CORNER_OPEN_EAST;
                         else
                             return OUTER_CORNER_EAST;
                     }
-                    default -> {
+                    default: {
                         if (open)
                             return OUTER_CORNER_OPEN_WEST;
                         else
@@ -222,25 +222,25 @@ public class KitchenCabinet extends HorizontalFacingBlock implements BlockEntity
 
             case OUTER_RIGHT:
                 switch (dir){
-                    case NORTH -> {
+                    case NORTH:  {
                         if (open)
                             return OUTER_CORNER_OPEN_EAST;
                         else
                             return OUTER_CORNER_EAST;
                     }
-                    case SOUTH -> {
+                    case SOUTH:  {
                         if (open)
                             return OUTER_CORNER_OPEN_WEST;
                         else
                             return OUTER_CORNER_WEST;
                     }
-                    case EAST -> {
+                    case EAST:  {
                         if (open)
                             return OUTER_CORNER_OPEN_SOUTH;
                         else
                             return OUTER_CORNER_SOUTH;
                     }
-                    default -> {
+                    default: {
                         if (open)
                             return OUTER_CORNER_OPEN;
                         else
@@ -344,11 +344,6 @@ public class KitchenCabinet extends HorizontalFacingBlock implements BlockEntity
     }
 
     @Override
-    public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
-        return false;
-    }
-
-    @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         BlockEntity blockEntity;
         if (itemStack.hasCustomName() && (blockEntity = world.getBlockEntity(pos)) instanceof GenericStorageBlockEntity9x3) {
@@ -357,8 +352,8 @@ public class KitchenCabinet extends HorizontalFacingBlock implements BlockEntity
     }
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new GenericStorageBlockEntity9x3(pos,state);
+    public BlockEntity createBlockEntity(BlockView world) {
+        return new GenericStorageBlockEntity9x3();
     }
 
     public int getFlammability(BlockState state, BlockView world, BlockPos pos, Direction face) {

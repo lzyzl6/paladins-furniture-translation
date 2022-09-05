@@ -31,8 +31,8 @@ public class FridgeBlockEntity extends LootableContainerBlockEntity {
             return 54;
         }
 
-    public FridgeBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntities.FRIDGE_BLOCK_ENTITY, pos, state);
+    public FridgeBlockEntity() {
+        super(BlockEntities.FRIDGE_BLOCK_ENTITY);
     }
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(54, ItemStack.EMPTY);
     private final ViewerCountManager stateManager = new ViewerCountManager() {

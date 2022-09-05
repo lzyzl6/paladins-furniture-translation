@@ -30,8 +30,8 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 
 public class GenericStorageBlockEntity3x3 extends LootableContainerBlockEntity {
-    public GenericStorageBlockEntity3x3(BlockPos pos, BlockState state) {
-        super(BlockEntities.KITCHEN_DRAWER_SMALL_BLOCK_ENTITY, pos, state);
+    public GenericStorageBlockEntity3x3() {
+        super(BlockEntities.KITCHEN_DRAWER_SMALL_BLOCK_ENTITY);
     }
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
     private final ViewerCountManager stateManager = new ViewerCountManager() {

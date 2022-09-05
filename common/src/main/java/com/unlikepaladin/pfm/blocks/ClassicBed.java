@@ -125,66 +125,66 @@ public class ClassicBed extends SimpleBed {
         boolean bunk = state.get(BUNK);
         if (bedPart == BedPart.FOOT && bunk) {
             switch (middleShape) {
-                case SINGLE -> {
+                case SINGLE: {
                     switch (dir) {
-                        case NORTH -> {
+                        case NORTH: {
                             return FOOT_SINGLE_BUNK;
                         }
-                        case EAST -> {
+                        case EAST: {
                             return FOOT_SINGLE_EAST_BUNK;
                         }
-                        case WEST -> {
+                        case WEST:{
                             return FOOT_SINGLE_WEST_BUNK;
                         }
-                        default -> {
+                        default: {
                             return FOOT_SINGLE_SOUTH_BUNK;
                         }
                     }
                 }
-                case MIDDLE -> {
+                case MIDDLE: {
                     switch (dir) {
-                        case NORTH -> {
+                        case NORTH: {
                             return FOOT;
                         }
-                        case EAST -> {
+                        case EAST: {
                             return FOOT_EAST;
                         }
-                        case WEST -> {
+                        case WEST: {
                             return FOOT_WEST;
                         }
-                        default -> {
+                        default: {
                             return FOOT_SOUTH;
                         }
                     }
                 }
-                case RIGHT -> {
+                case RIGHT: {
                     switch (dir) {
-                        case NORTH -> {
+                        case NORTH: {
                             return FOOT_RIGHT_BUNK;
                         }
-                        case EAST -> {
+                        case EAST: {
                             return FOOT_RIGHT_EAST_BUNK;
                         }
-                        case WEST -> {
+                        case WEST: {
                             return FOOT_RIGHT_WEST_BUNK;
                         }
-                        default -> {
+                        default: {
                             return FOOT_RIGHT_SOUTH_BUNK;
                         }
                     }
                 }
-                default -> {
+                default: {
                     switch (dir) {
-                        case NORTH -> {
+                        case NORTH: {
                             return FOOT_LEFT_BUNK;
                         }
-                        case EAST -> {
+                        case EAST: {
                             return FOOT_LEFT_EAST_BUNK;
                         }
-                        case WEST -> {
+                        case WEST: {
                             return FOOT_LEFT_WEST_BUNK;
                         }
-                        default -> {
+                        default: {
                             return FOOT_LEFT_SOUTH_BUNK;
                         }
                     }
@@ -192,27 +192,27 @@ public class ClassicBed extends SimpleBed {
             }
         }
         switch (middleShape){
-            case MIDDLE -> {
+            case MIDDLE: {
                 switch (dir){
-                    case NORTH -> {
+                    case NORTH: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD;
                         }
                         return FOOT;
                     }
-                    case EAST -> {
+                    case EAST: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD_EAST;
                         }
                         return FOOT_EAST;
                     }
-                    case WEST -> {
+                    case WEST: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD_WEST;
                         }
                         return FOOT_WEST;
                     }
-                    default -> {
+                    default: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD_SOUTH;
                         }
@@ -220,27 +220,27 @@ public class ClassicBed extends SimpleBed {
                     }
                 }
             }
-            case SINGLE -> {
+            case SINGLE: {
                 switch (dir){
-                    case NORTH -> {
+                    case NORTH: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD_SINGLE;
                         }
                         return FOOT_SINGLE;
                     }
-                    case EAST -> {
+                    case EAST: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD_SINGLE_EAST;
                         }
                         return FOOT_SINGLE_EAST;
                     }
-                    case WEST -> {
+                    case WEST: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD_SINGLE_WEST;
                         }
                         return FOOT_SINGLE_WEST;
                     }
-                    default -> {
+                    default: {
                         if(bedPart == BedPart.HEAD){
                             return HEAD_SINGLE_SOUTH;
                         }
@@ -248,27 +248,27 @@ public class ClassicBed extends SimpleBed {
                     }
                 }
             }
-            case RIGHT -> {
+            case RIGHT: {
                 switch (dir) {
-                    case NORTH -> {
+                    case NORTH: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_RIGHT;
                         }
                         return FOOT_RIGHT;
                     }
-                    case EAST -> {
+                    case EAST: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_RIGHT_EAST;
                         }
                         return FOOT_RIGHT_EAST;
                     }
-                    case WEST -> {
+                    case WEST: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_RIGHT_WEST;
                         }
                         return FOOT_RIGHT_WEST;
                     }
-                    default -> {
+                    default: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_RIGHT_SOUTH;
                         }
@@ -276,27 +276,27 @@ public class ClassicBed extends SimpleBed {
                     }
                 }
             }
-            default -> {
+            default:  {
                 switch (dir) {
-                    case NORTH -> {
+                    case NORTH: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_LEFT;
                         }
                         return FOOT_LEFT;
                     }
-                    case EAST -> {
+                    case EAST: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_LEFT_EAST;
                         }
                         return FOOT_LEFT_EAST;
                     }
-                    case WEST -> {
+                    case WEST: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_LEFT_WEST;
                         }
                         return FOOT_LEFT_WEST;
                     }
-                    default -> {
+                    default: {
                         if (bedPart == BedPart.HEAD) {
                             return HEAD_LEFT_SOUTH;
                         }

@@ -9,16 +9,16 @@ import net.minecraft.util.math.BlockPos;
 
 public class StoveBlockEntityImpl extends StoveBlockEntity implements BlockEntityClientSerializable {
 
-    public StoveBlockEntityImpl(BlockPos pos, BlockState state) {
-        super(pos, state);
+    public StoveBlockEntityImpl() {
+        super();
     }
 
-    public StoveBlockEntityImpl(BlockEntityType<?> entity, BlockPos pos, BlockState state) {
-        super(entity, pos, state);
+    public StoveBlockEntityImpl(BlockEntityType<?> entity) {
+        super(entity);
     }
 
     public void fromClientTag(NbtCompound tag) {
-        readNbt(tag);
+        fromTag(getCachedState(), tag);
     }
 
     @Override

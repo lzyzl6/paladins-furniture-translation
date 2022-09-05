@@ -29,8 +29,8 @@ import net.minecraft.world.World;
 
 
 public class GenericStorageBlockEntity9x3 extends LootableContainerBlockEntity {
-    public GenericStorageBlockEntity9x3(BlockPos pos, BlockState state) {
-        super(BlockEntities.DRAWER_BLOCK_ENTITY, pos, state);
+    public GenericStorageBlockEntity9x3() {
+        super(BlockEntities.DRAWER_BLOCK_ENTITY);
     }
 
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(27, ItemStack.EMPTY);
@@ -101,8 +101,8 @@ public class GenericStorageBlockEntity9x3 extends LootableContainerBlockEntity {
 
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
+    public void fromTag(BlockState state, NbtCompound nbt) {
+        super.fromTag(state, nbt);
         this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
         if (!this.deserializeLootTable(nbt)) {
             Inventories.readNbt(nbt, this.inventory);
@@ -129,7 +129,7 @@ public class GenericStorageBlockEntity9x3 extends LootableContainerBlockEntity {
     }
 
     void setOpen(BlockState state, boolean open) {
-        this.world.setBlockState(this.getPos(), state.with(Properties.OPEN, open), Block.NOTIFY_ALL);
+        this.world.setBlockState(this.getPos(), state.with(Properties.OPEN, open), 3);
     }
 
     @Override

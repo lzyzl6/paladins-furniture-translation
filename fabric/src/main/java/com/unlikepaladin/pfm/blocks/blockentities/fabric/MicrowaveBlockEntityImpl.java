@@ -24,8 +24,8 @@ import java.util.Collection;
 import java.util.stream.Stream;
 
 public class MicrowaveBlockEntityImpl extends MicrowaveBlockEntity implements BlockEntityClientSerializable, ExtendedScreenHandlerFactory {
-    public MicrowaveBlockEntityImpl(BlockPos pos, BlockState state) {
-        super(pos, state);
+    public MicrowaveBlockEntityImpl() {
+        super();
     }
 
     public static void setActiveonClient(MicrowaveBlockEntity microwaveBlockEntity, boolean active) {

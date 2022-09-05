@@ -16,8 +16,8 @@ import java.util.List;
 
 public class LightSwitchBlockEntity extends BlockEntity {
     private final List<BlockPos> lights;
-    public LightSwitchBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntities.LIGHT_SWITCH_BLOCK_ENTITY, pos, state);
+    public LightSwitchBlockEntity() {
+        super(BlockEntities.LIGHT_SWITCH_BLOCK_ENTITY);
         lights = DefaultedList.of();
     }
 
@@ -31,14 +31,16 @@ public class LightSwitchBlockEntity extends BlockEntity {
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
-        if(nbt.contains("lights", NbtElement.LIST_TYPE)){
+    public void fromTag(BlockState state, NbtCompound nbt) {
+        super.fromTag(state, nbt);
+        if(nbt.contains("lights")){
             lights.clear();
-            NbtList lightTagList = nbt.getList("lights", NbtElement.LONG_TYPE);
+            //TODO: Find right number here
+            NbtList lightTagList = nbt.getList("lights", 3);
             lightTagList.forEach(nbtElement -> addLight(((NbtLong)nbtElement).longValue()));
         }
     }
+
     public void addLight(long pos)
     {
         BlockPos lightPos = BlockPos.fromLong(pos);

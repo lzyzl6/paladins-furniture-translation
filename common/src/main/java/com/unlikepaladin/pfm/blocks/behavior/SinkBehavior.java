@@ -25,8 +25,8 @@ import java.util.function.Predicate;
 public interface SinkBehavior extends CauldronBehavior {
 
     SinkBehavior FILL_SINK_WITH_WATER = (state, world, pos, player, hand, stack) -> SinkBehavior.fillCauldron(world, pos, player, hand, stack, state.with(KitchenSink.LEVEL_4, 3), SoundEvents.ITEM_BUCKET_EMPTY);
-    Map<Item, CauldronBehavior> WATER_SINK_BEHAVIOR = CauldronBehavior.createMap();
-    CauldronBehavior CLEAN_SHULKER_BOX = (state, world, pos, player, hand, stack) -> {
+    Map<Item, SinkBehavior> WATER_SINK_BEHAVIOR = SinkBehavior.createMap();
+    SinkBehavior CLEAN_SHULKER_BOX = (state, world, pos, player, hand, stack) -> {
         if (state.get(KitchenSink.LEVEL_4) == 0) {
             return ActionResult.PASS;
         }
@@ -46,7 +46,7 @@ public interface SinkBehavior extends CauldronBehavior {
         return ActionResult.success(world.isClient);
     };
 
-    CauldronBehavior CLEAN_DYEABLE_ITEM = (state, world, pos, player, hand, stack) -> {
+    SinkBehavior CLEAN_DYEABLE_ITEM = (state, world, pos, player, hand, stack) -> {
        if (state.get(KitchenSink.LEVEL_4) == 0) {
            return ActionResult.PASS;
        }
@@ -65,7 +65,7 @@ public interface SinkBehavior extends CauldronBehavior {
         }
         return ActionResult.success(world.isClient);
 };
-    CauldronBehavior CLEAN_BANNER = (state, world, pos, player, hand, stack) -> {
+    SinkBehavior CLEAN_BANNER = (state, world, pos, player, hand, stack) -> {
         if (BannerBlockEntity.getPatternCount(stack) <= 0 || state.get(KitchenSink.LEVEL_4) == 0) {
             return ActionResult.PASS;
         }
@@ -118,7 +118,7 @@ public interface SinkBehavior extends CauldronBehavior {
         return ActionResult.success(world.isClient);
     }
 
-    static void registerBucketBehavior(Map<Item, CauldronBehavior> behavior) {
+    static void registerBucketBehavior(Map<Item, SinkBehavior> behavior) {
         behavior.put(Items.WATER_BUCKET, FILL_SINK_WITH_WATER);
     }
     static void registerBehavior() {

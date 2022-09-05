@@ -31,6 +31,7 @@ configurations {
     developmentFabric.extendsFrom common
 }
 
+
 repositories {
     maven { url "https://maven.shedaniel.me" }
     maven { url 'https://maven.blamejared.com' }
@@ -54,19 +55,16 @@ repositories {
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
     }
-    mavenLocal()
 }
 
 if (rootProject.sandwichable_compatibility == "true") {
     dependencies {
         modImplementation("maven.modrinth:sandwichable:${rootProject.sandwichable_version}")
-        modImplementation("dev.lambdaurora:spruceui:${rootProject.spruceui_version}")
     }
 }
 else {
     dependencies {
         modCompileOnly("maven.modrinth:sandwichable:${rootProject.sandwichable_version}")
-        modCompileOnly("dev.lambdaurora:spruceui:${rootProject.spruceui_version}")
     }
 }
 
@@ -87,13 +85,12 @@ else {
 
 if (rootProject.rei_compatibility == "true"){
     dependencies {
-        modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rootProject.rei_version}"
-        modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rootProject.rei_version}"
+        modImplementation "me.shedaniel:RoughlyEnoughItems:${rootProject.rei_version}"
     }
 }
 else {
     dependencies {
-        modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rootProject.rei_version}"
+        modCompileOnly "me.shedaniel:RoughlyEnoughItems:${rootProject.rei_version}"
     }
 }
 
@@ -198,3 +195,4 @@ publishing {
         // Add repositories to publish to here.
     }
 }
+

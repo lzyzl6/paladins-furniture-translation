@@ -12,8 +12,8 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 
 public class CounterOvenBlockEntity extends AbstractFurnaceBlockEntity {
-    public CounterOvenBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntities.KITCHEN_COUNTER_OVEN_BLOCK_ENTITY, pos, state, RecipeType.SMOKING);
+    public CounterOvenBlockEntity() {
+        super(BlockEntities.KITCHEN_COUNTER_OVEN_BLOCK_ENTITY, RecipeType.SMOKING);
     }
      String blockname = this.getCachedState().getBlock().getTranslationKey();
     @Override

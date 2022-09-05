@@ -64,7 +64,7 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
         PlateBlockEntity plateBlockEntity;
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof PlateBlockEntity && (itemStack.isFood())) {
-            if (!world.isClient && ((PlateBlockEntity)blockEntity).addItem(player.getAbilities().creativeMode ? itemStack.copy() : itemStack)) {
+            if (!world.isClient && ((PlateBlockEntity)blockEntity).addItem(player.isCreative() ? itemStack.copy() : itemStack)) {
                 player.incrementStat(Statistics.PLATE_USED);
                 return ActionResult.SUCCESS;
             }
@@ -111,7 +111,7 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
     }
     @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (state.get(CUTLERY) && !player.getAbilities().creativeMode) {
+        if (state.get(CUTLERY) && !player.isCreative()) {
             ItemEntity itemEntity = new ItemEntity( world, pos.getX() + 0.5D, pos.getY() + 0.8D, pos.getZ() + 0.5D, new ItemStack(PaladinFurnitureModBlocksItems.BASIC_CUTLERY, 1));
             world.spawnEntity(itemEntity);
         }
@@ -120,12 +120,12 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
 
     @Nullable
     @Override
-    public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return getBlockEntity(pos, state);
+    public BlockEntity createBlockEntity(BlockView world) {
+        return getBlockEntity();
     }
 
     @ExpectPlatform
-    public static BlockEntity getBlockEntity(BlockPos pos, BlockState state) {
+    public static BlockEntity getBlockEntity() {
         return null;
     }
 
@@ -174,12 +174,16 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
         Direction dir = state.get(FACING);
-        return switch (dir) {
-            case WEST -> PLATE_SOUTH;
-            case NORTH -> PLATE_WEST;
-            case SOUTH -> PLATE_EAST;
-            default -> PLATE;
-        };
+        switch (dir) {
+            case WEST:
+                return PLATE_SOUTH;
+            case NORTH:
+                return PLATE_WEST;
+            case SOUTH:
+                return PLATE_EAST;
+            default:
+                return PLATE;
+        }
     }
 
     @Override
@@ -188,7 +192,8 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
             return;
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (blockEntity instanceof PlateBlockEntity plateBlockEntity) {
+        if (blockEntity instanceof PlateBlockEntity) {
+            PlateBlockEntity plateBlockEntity = (PlateBlockEntity) blockEntity;
             ItemScatterer.spawn(world, pos, plateBlockEntity.getInventory());
             world.updateComparators(pos, this);
             plateBlockEntity.markRemoved();
@@ -200,12 +205,10 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
     private void spawnItemParticles(LivingEntity entity, ItemStack stack, int count) {
         for (int i = 0; i < count; ++i) {
             Vec3d vec3d = new Vec3d(((double)this.random.nextFloat() - 0.5) * 0.1, Math.random() * 0.1 + 0.1, 0.0);
-            vec3d = vec3d.rotateX(-entity.getPitch() * ((float)Math.PI / 180));
-            vec3d = vec3d.rotateY(-entity.getYaw() * ((float)Math.PI / 180));
+            vec3d = vec3d.rotateY(-entity.getHeadYaw() * ((float)Math.PI / 180));
             double d = (double)(-this.random.nextFloat()) * 0.6 - 0.3;
             Vec3d vec3d2 = new Vec3d(((double)this.random.nextFloat() - 0.5) * 0.3, d, 0.6);
-            vec3d2 = vec3d2.rotateX(-entity.getPitch() * ((float)Math.PI / 180));
-            vec3d2 = vec3d2.rotateY(-entity.getYaw() * ((float)Math.PI / 180));
+            vec3d2 = vec3d2.rotateY(-entity.getHeadYaw() * ((float)Math.PI / 180));
             vec3d2 = vec3d2.add(entity.getX(), entity.getEyeY(), entity.getZ());
             entity.world.addParticle(new ItemStackParticleEffect(ParticleTypes.ITEM, stack), vec3d2.x, vec3d2.y, vec3d2.z, vec3d.x, vec3d.y + 0.05, vec3d.z);
         }
