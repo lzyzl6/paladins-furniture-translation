@@ -36,7 +36,6 @@ public class PaladinFurnitureModForge extends PaladinFurnitureMod {
         MinecraftForge.EVENT_BUS.register(PaladinFurnitureModDataGenForge.class);
         NetworkRegistryForge.registerPackets();
         if (ModList.get().isLoaded("cloth_config")) {
-            //TODO: Fix this shit
             pfmConfig = AutoConfig.register(PaladinFurnitureModConfigImpl.class, Toml4jConfigSerializer::new);
             ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY, () -> this::screen);
         }
