@@ -42,6 +42,7 @@ public class SimpleBed extends BedBlock implements Waterloggable, DyeableFurnitu
     private static final List<FurnitureBlock> SIMPLE_BEDS = new ArrayList<>();
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final BooleanProperty BUNK = BooleanProperty.of("bunk");
+    private final DyeColor color;
 
     public SimpleBed(DyeColor color, Settings settings) {
         super(color, settings);
@@ -50,6 +51,12 @@ public class SimpleBed extends BedBlock implements Waterloggable, DyeableFurnitu
             String bedColor = color.getName();
             SIMPLE_BEDS.add(new FurnitureBlock(this, bedColor+"_simple_bed"));
         }
+        this.color = color;
+    }
+
+    @Override
+    public DyeColor getColor() {
+        return this.color;
     }
 
     public static Stream<FurnitureBlock> streamSimpleBeds() {

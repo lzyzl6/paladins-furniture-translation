@@ -18,14 +18,21 @@ import java.util.stream.Stream;
 
 import static com.unlikepaladin.pfm.blocks.LogTable.rotateShape;
 
-public class ClassicBed extends SimpleBed {
+public class ClassicBed extends SimpleBed implements DyeableFurniture {
     private static final List<FurnitureBlock> CLASSIC_BEDS = new ArrayList<>();
+    private final DyeColor color;
     public ClassicBed(DyeColor color, Settings settings) {
         super(color, settings);
         if(this.getClass().isAssignableFrom(ClassicBed.class)){
             String bedColor = color.getName();
             CLASSIC_BEDS.add(new FurnitureBlock(this, bedColor+"_classic_bed"));
         }
+        this.color = color;
+    }
+
+    @Override
+    public DyeColor getColor() {
+        return this.color;
     }
 
     public static Stream<FurnitureBlock> streamClassicBeds() {
