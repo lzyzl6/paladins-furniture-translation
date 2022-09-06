@@ -35,13 +35,10 @@ public class ColorRegistryFabric {
         addWaterColor(PaladinFurnitureModBlocksItems.GRANITE_KITCHEN_SINK);
         addWaterColor(PaladinFurnitureModBlocksItems.DIORITE_KITCHEN_SINK);
         addWaterColor(PaladinFurnitureModBlocksItems.NETHERITE_KITCHEN_SINK);
-        addWaterColor(PaladinFurnitureModBlocksItems.CALCITE_KITCHEN_SINK);
         addWaterColor(PaladinFurnitureModBlocksItems.ANDESITE_KITCHEN_SINK);
         addWaterColor(PaladinFurnitureModBlocksItems.SMOOTH_STONE_KITCHEN_SINK);
         addWaterColor(PaladinFurnitureModBlocksItems.STONE_KITCHEN_SINK);
         addWaterColor(PaladinFurnitureModBlocksItems.BLACKSTONE_KITCHEN_SINK);
-        addWaterColor(PaladinFurnitureModBlocksItems.DEEPSLATE_KITCHEN_SINK);
-        addWaterColor(PaladinFurnitureModBlocksItems.DEEPSLATE_TILE_KITCHEN_SINK);
 
         ColorProviderRegistry.BLOCK.register((state, view, pos, index) -> state.get(BasicToilet.TOILET_STATE) !=  ToiletState.DIRTY ? BiomeColors.getWaterColor(view, pos) : 0x534230, PaladinFurnitureModBlocksItems.BASIC_TOILET);
 

@@ -52,12 +52,7 @@ public class PendantBlock extends PowerableBlock implements Waterloggable {
     @Override
     public void setPowered(World world, BlockPos lightPos, boolean powered) {
         BlockState state = world.getBlockState(lightPos);
-        world.setBlockState(lightPos, state.with(LIT, powered).with(POWERLOCKED,powered));
-    }
-
-    @Override
-    public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
-        return false;
+        world.setBlockState(lightPos, state.with(LIT, powered).with(POWERLOCKED, powered));
     }
 
     public static BlockState canConnect(BlockState state, WorldAccess world, BlockPos pos) {
@@ -134,7 +129,7 @@ public class PendantBlock extends PowerableBlock implements Waterloggable {
             if (bl) {
                 world.getBlockTickScheduler().schedule(pos, this, 4);
             } else {
-                world.setBlockState(pos, state.cycle(LIT), Block.NOTIFY_LISTENERS);
+                world.setBlockState(pos, state.cycle(LIT), 2);
             }
         }
     }
@@ -147,7 +142,7 @@ public class PendantBlock extends PowerableBlock implements Waterloggable {
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (state.get(LIT) && !world.isReceivingRedstonePower(pos) && !state.get(POWERLOCKED)) {
-            world.setBlockState(pos, state.cycle(LIT), Block.NOTIFY_LISTENERS);
+            world.setBlockState(pos, state.cycle(LIT), 2);
         }
     }
 

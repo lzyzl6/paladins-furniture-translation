@@ -45,7 +45,7 @@ public class MicrowaveBlockEntityImpl extends MicrowaveBlockEntity implements Bl
 
     @Override
     public void fromClientTag(NbtCompound tag) {
-        readNbt(tag);
+        fromTag(this.getCachedState(), tag);
     }
 
     @Override

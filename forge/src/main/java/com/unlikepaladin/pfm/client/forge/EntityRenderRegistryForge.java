@@ -30,6 +30,5 @@ public class EntityRenderRegistryForge {
 
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions registerLayerDefinitions){
-        registerLayerDefinitions.registerLayerDefinition(EntityRenderIDs.MODEL_CUBE_LAYER, ModelEmpty::getTexturedModelData);
     }
 }

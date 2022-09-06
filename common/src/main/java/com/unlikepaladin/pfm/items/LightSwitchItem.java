@@ -38,7 +38,7 @@ public class LightSwitchItem extends BlockItem {
             return new TypedActionResult<>(ActionResult.FAIL, stack);
         }
         if (player.isSneaking()) {
-            stack.setNbt(null);
+            stack.setTag(null);
             return new TypedActionResult<>(ActionResult.SUCCESS, stack);
         }
         return new TypedActionResult<>(ActionResult.PASS, stack);
@@ -97,13 +97,13 @@ public class LightSwitchItem extends BlockItem {
     private void addLight(ItemStack stack, BlockPos pos)
     {
         NbtCompound tagCompound = createTag(stack);
-        if(!tagCompound.contains("BlockEntityTag", NbtElement.COMPOUND_TYPE))
+        if(!tagCompound.contains("BlockEntityTag"))
         {
             tagCompound.put("BlockEntityTag", new NbtCompound());
         }
 
         NbtCompound entityTagCompound = tagCompound.getCompound("BlockEntityTag");
-        if(!entityTagCompound.contains("lights", NbtElement.LIST_TYPE))
+        if(!entityTagCompound.contains("lights"))
         {
             entityTagCompound.put("lights", new NbtList());
         }
@@ -132,10 +132,10 @@ public class LightSwitchItem extends BlockItem {
     public static NbtList getLights(ItemStack stack)
     {
         NbtCompound tagCompound = createTag(stack);
-        if(tagCompound.contains("BlockEntityTag", NbtElement.COMPOUND_TYPE))
+        if(tagCompound.contains("BlockEntityTag"))
         {
             NbtCompound entityTagCompound = tagCompound.getCompound("BlockEntityTag");
-            if(entityTagCompound.contains("lights", NbtElement.LIST_TYPE))
+            if(entityTagCompound.contains("lights"))
             {
                 return (NbtList) entityTagCompound.get("lights");
             }
@@ -145,11 +145,11 @@ public class LightSwitchItem extends BlockItem {
 
     private static NbtCompound createTag(ItemStack stack)
     {
-        if(!stack.hasNbt())
+        if(!stack.hasTag())
         {
-            stack.setNbt(new NbtCompound());
+            stack.setTag(new NbtCompound());
         }
-        return stack.getNbt();
+        return stack.getTag();
     }
 
 }

@@ -40,17 +40,15 @@ import static net.minecraft.block.Block.createCuboidShape;
 public class KitchenSink extends CauldronBlock implements Waterloggable {
     private final BlockState baseBlockState;
     private final Block baseBlock;
-    private final Predicate<Biome.Precipitation> precipitationPredicate;
     public static final IntProperty LEVEL_4 = IntProperty.of("level", 0, 3);
     private final Map<Item, SinkBehavior> behaviorMap;
     private static final List<FurnitureBlock> WOOD_SINKS = new ArrayList<>();
     private static final List<FurnitureBlock> STONE_SINKS = new ArrayList<>();
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public KitchenSink(Settings settings, Predicate<Biome.Precipitation> precipitationPredicate, Map<Item, SinkBehavior> map) {
+    public KitchenSink(Settings settings, Map<Item, SinkBehavior> map) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH).with(LEVEL_4, 0).with(WATERLOGGED, false));
         this.baseBlockState = this.getDefaultState();
-        this.precipitationPredicate = precipitationPredicate;
         this.behaviorMap = map;
         this.baseBlock = baseBlockState.getBlock();
         if((material.equals(Material.WOOD) || material.equals(Material.NETHER_WOOD)) && this.getClass().isAssignableFrom(KitchenSink.class)){
@@ -183,16 +181,24 @@ public class KitchenSink extends CauldronBlock implements Waterloggable {
     }
 
     @Override
-    public void precipitationTick(BlockState state, World world, BlockPos pos, Biome.Precipitation precipitation) {
-        if (!canFillWithPrecipitation(world, precipitation) || state.get(LEVEL_4) == 3 || !this.precipitationPredicate.test(precipitation)) {
-            return;
-        }
-        world.setBlockState(pos, state.cycle(LEVEL_4));
-    }
-
-    @Override
     public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
         return state.get(LEVEL_4);
+    }
+
+
+    @Override
+    public void rainTick(World world, BlockPos pos) {
+        if (world.random.nextInt(20) != 1) {
+            return;
+        }
+        float f = world.getBiome(pos).getTemperature(pos);
+        if (f < 0.15f) {
+            return;
+        }
+        BlockState blockState = world.getBlockState(pos);
+        if (blockState.get(LEVEL_4) < 4) {
+            world.setBlockState(pos, blockState.cycle(LEVEL_4), 2);
+        }
     }
 
 

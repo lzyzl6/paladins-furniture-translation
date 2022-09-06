@@ -1,19 +1,15 @@
 package com.unlikepaladin.pfm.registry;
 
 
-import com.unlikepaladin.pfm.PaladinFurnitureMod;
 import com.unlikepaladin.pfm.blocks.*;
 import com.unlikepaladin.pfm.blocks.behavior.SinkBehavior;
 import com.unlikepaladin.pfm.items.DyeKit;
-import com.unlikepaladin.pfm.items.FurnitureGuideBook;
-import com.unlikepaladin.pfm.items.LightSwitchItem;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.DyeColor;
-import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -540,7 +536,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block OAK_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(OAK_CHAIR));
     public static final Block OAK_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block OAK_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
-    public static final Block OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block OAK_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block OAK_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block OAK_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
@@ -549,7 +545,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block BIRCH_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(BIRCH_CHAIR));
     public static final Block BIRCH_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
     public static final Block BIRCH_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
-    public static final Block BIRCH_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block BIRCH_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block BIRCH_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
     public static final Block BIRCH_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
     public static final Block BIRCH_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
@@ -558,7 +554,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block SPRUCE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(SPRUCE_CHAIR));
     public static final Block SPRUCE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
     public static final Block SPRUCE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
-    public static final Block SPRUCE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block SPRUCE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block SPRUCE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
     public static final Block SPRUCE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
     public static final Block SPRUCE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
@@ -567,7 +563,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block JUNGLE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(JUNGLE_CHAIR));
     public static final Block JUNGLE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
     public static final Block JUNGLE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
-    public static final Block JUNGLE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block JUNGLE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block JUNGLE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
     public static final Block JUNGLE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
     public static final Block JUNGLE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
@@ -576,7 +572,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block ACACIA_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(ACACIA_CHAIR));
     public static final Block ACACIA_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
     public static final Block ACACIA_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
-    public static final Block ACACIA_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block ACACIA_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block ACACIA_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
     public static final Block ACACIA_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
     public static final Block ACACIA_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
@@ -585,7 +581,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block DARK_OAK_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(DARK_OAK_CHAIR));
     public static final Block DARK_OAK_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block DARK_OAK_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
-    public static final Block DARK_OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block DARK_OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block DARK_OAK_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block DARK_OAK_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block DARK_OAK_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
@@ -594,7 +590,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block CRIMSON_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(CRIMSON_CHAIR));
     public static final Block CRIMSON_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
     public static final Block CRIMSON_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
-    public static final Block CRIMSON_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block CRIMSON_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block CRIMSON_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
     public static final Block CRIMSON_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
     public static final Block CRIMSON_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
@@ -603,7 +599,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block WARPED_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(WARPED_CHAIR));
     public static final Block WARPED_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
     public static final Block WARPED_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
-    public static final Block WARPED_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block WARPED_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block WARPED_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
     public static final Block WARPED_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
     public static final Block WARPED_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
@@ -612,7 +608,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_OAK_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_OAK_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_OAK_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
-    public static final Block STRIPPED_OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_OAK_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_OAK_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_OAK_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
@@ -621,7 +617,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_BIRCH_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
     public static final Block STRIPPED_BIRCH_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
     public static final Block STRIPPED_BIRCH_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
-    public static final Block STRIPPED_BIRCH_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_BIRCH_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_BIRCH_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
     public static final Block STRIPPED_BIRCH_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
     public static final Block STRIPPED_BIRCH_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(BIRCH_KITCHEN_COUNTER));
@@ -630,7 +626,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_SPRUCE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
     public static final Block STRIPPED_SPRUCE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
     public static final Block STRIPPED_SPRUCE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
-    public static final Block STRIPPED_SPRUCE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_SPRUCE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_SPRUCE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
     public static final Block STRIPPED_SPRUCE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
     public static final Block STRIPPED_SPRUCE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(SPRUCE_KITCHEN_COUNTER));
@@ -639,7 +635,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_JUNGLE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
     public static final Block STRIPPED_JUNGLE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
     public static final Block STRIPPED_JUNGLE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
-    public static final Block STRIPPED_JUNGLE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_JUNGLE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_JUNGLE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
     public static final Block STRIPPED_JUNGLE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
     public static final Block STRIPPED_JUNGLE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(JUNGLE_KITCHEN_COUNTER));
@@ -648,7 +644,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_ACACIA_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
     public static final Block STRIPPED_ACACIA_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
     public static final Block STRIPPED_ACACIA_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
-    public static final Block STRIPPED_ACACIA_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_ACACIA_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_ACACIA_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
     public static final Block STRIPPED_ACACIA_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
     public static final Block STRIPPED_ACACIA_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(ACACIA_KITCHEN_COUNTER));
@@ -657,7 +653,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_DARK_OAK_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_DARK_OAK_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_DARK_OAK_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
-    public static final Block STRIPPED_DARK_OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_DARK_OAK_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_DARK_OAK_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_DARK_OAK_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block STRIPPED_DARK_OAK_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
@@ -666,7 +662,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_CRIMSON_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
     public static final Block STRIPPED_CRIMSON_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
     public static final Block STRIPPED_CRIMSON_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
-    public static final Block STRIPPED_CRIMSON_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_CRIMSON_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_CRIMSON_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
     public static final Block STRIPPED_CRIMSON_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
     public static final Block STRIPPED_CRIMSON_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(CRIMSON_KITCHEN_COUNTER));
@@ -675,7 +671,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STRIPPED_WARPED_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
     public static final Block STRIPPED_WARPED_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
     public static final Block STRIPPED_WARPED_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
-    public static final Block STRIPPED_WARPED_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STRIPPED_WARPED_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STRIPPED_WARPED_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
     public static final Block STRIPPED_WARPED_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
     public static final Block STRIPPED_WARPED_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(WARPED_KITCHEN_COUNTER));
@@ -1055,7 +1051,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block CONCRETE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(RAW_CONCRETE));
     public static final Block CONCRETE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(CONCRETE_KITCHEN_COUNTER));
     public static final Block CONCRETE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(CONCRETE_KITCHEN_COUNTER));
-    public static final Block CONCRETE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(CONCRETE_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block CONCRETE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(CONCRETE_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block CONCRETE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(CONCRETE_KITCHEN_COUNTER));
     public static final Block CONCRETE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(CONCRETE_KITCHEN_COUNTER));
     public static final Block CONCRETE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(CONCRETE_KITCHEN_COUNTER));
@@ -1064,7 +1060,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block DARK_CONCRETE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(RAW_CONCRETE));
     public static final Block DARK_CONCRETE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(DARK_CONCRETE_KITCHEN_COUNTER));
     public static final Block DARK_CONCRETE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(DARK_CONCRETE_KITCHEN_COUNTER));
-    public static final Block DARK_CONCRETE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_CONCRETE_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block DARK_CONCRETE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_CONCRETE_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block DARK_CONCRETE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(DARK_CONCRETE_KITCHEN_COUNTER));
     public static final Block DARK_CONCRETE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(DARK_CONCRETE_KITCHEN_COUNTER));
     public static final Block DARK_CONCRETE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(DARK_CONCRETE_KITCHEN_COUNTER));
@@ -1073,7 +1069,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block LIGHT_WOOD_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block LIGHT_WOOD_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block LIGHT_WOOD_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
-    public static final Block LIGHT_WOOD_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block LIGHT_WOOD_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block LIGHT_WOOD_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block LIGHT_WOOD_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
     public static final Block LIGHT_WOOD_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(OAK_KITCHEN_COUNTER));
@@ -1082,7 +1078,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block DARK_WOOD_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block DARK_WOOD_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block DARK_WOOD_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
-    public static final Block DARK_WOOD_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block DARK_WOOD_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block DARK_WOOD_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block DARK_WOOD_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
     public static final Block DARK_WOOD_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(DARK_OAK_KITCHEN_COUNTER));
@@ -1091,7 +1087,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block GRANITE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE));
     public static final Block GRANITE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE));
     public static final Block GRANITE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE));
-    public static final Block GRANITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block GRANITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block GRANITE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE));
     public static final Block GRANITE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE));
     public static final Block GRANITE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_GRANITE));
@@ -1100,7 +1096,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block NETHERITE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK));
     public static final Block NETHERITE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK));
     public static final Block NETHERITE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK));
-    public static final Block NETHERITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block NETHERITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block NETHERITE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK));
     public static final Block NETHERITE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK));
     public static final Block NETHERITE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(Blocks.NETHERITE_BLOCK));
@@ -1109,7 +1105,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block ANDESITE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE));
     public static final Block ANDESITE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE));
     public static final Block ANDESITE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE));
-    public static final Block ANDESITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block ANDESITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block ANDESITE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE));
     public static final Block ANDESITE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE));
     public static final Block ANDESITE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_ANDESITE));
@@ -1118,7 +1114,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block DIORITE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE));
     public static final Block DIORITE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE));
     public static final Block DIORITE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE));
-    public static final Block DIORITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block DIORITE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block DIORITE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE));
     public static final Block DIORITE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE));
     public static final Block DIORITE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_DIORITE));
@@ -1127,7 +1123,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block SMOOTH_STONE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE));
     public static final Block SMOOTH_STONE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE));
     public static final Block SMOOTH_STONE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE));
-    public static final Block SMOOTH_STONE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block SMOOTH_STONE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block SMOOTH_STONE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE));
     public static final Block SMOOTH_STONE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE));
     public static final Block SMOOTH_STONE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(Blocks.SMOOTH_STONE));
@@ -1136,7 +1132,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block STONE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(Blocks.STONE));
     public static final Block STONE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(Blocks.STONE));
     public static final Block STONE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(Blocks.STONE));
-    public static final Block STONE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.STONE), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block STONE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.STONE), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block STONE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(Blocks.STONE));
     public static final Block STONE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(Blocks.STONE));
     public static final Block STONE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(Blocks.STONE));
@@ -1145,7 +1141,7 @@ public class PaladinFurnitureModBlocksItems {
     public static final Block BLACKSTONE_KITCHEN_COUNTER = new KitchenCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE));
     public static final Block BLACKSTONE_KITCHEN_DRAWER = new KitchenDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE));
     public static final Block BLACKSTONE_KITCHEN_CABINET = new KitchenCabinet(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE));
-    public static final Block BLACKSTONE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE), LeveledCauldronBlock.RAIN_PREDICATE, SinkBehavior.WATER_SINK_BEHAVIOR);
+    public static final Block BLACKSTONE_KITCHEN_SINK = new KitchenSink(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE), SinkBehavior.WATER_SINK_BEHAVIOR);
     public static final Block BLACKSTONE_KITCHEN_COUNTER_OVEN = new KitchenCounterOven(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE));
     public static final Block BLACKSTONE_KITCHEN_WALL_COUNTER = new KitchenWallCounter(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE));
     public static final Block BLACKSTONE_KITCHEN_WALL_DRAWER = new KitchenWallDrawer(AbstractBlock.Settings.copy(Blocks.POLISHED_BLACKSTONE));

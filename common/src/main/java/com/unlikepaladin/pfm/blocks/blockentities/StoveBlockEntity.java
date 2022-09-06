@@ -43,14 +43,13 @@ public class StoveBlockEntity extends AbstractFurnaceBlockEntity implements Tick
     public StoveBlockEntity(BlockEntityType<?> entity) {
         super(entity, RecipeType.SMOKING);
     }
-     String blockname = this.getCachedState().getBlock().getTranslationKey();
 
     @Override
     protected Text getContainerName() {
-        blockname = blockname.replace("block.pfm", "");
         if (this.getCachedState().getBlock() instanceof KitchenCounterOven) {
             return new TranslatableText("container.pfm.kitchen_counter_oven");
         }
+        String blockname = this.getCachedState().getBlock().getTranslationKey().replace("block.pfm", "");
         return new TranslatableText("container.pfm" + blockname);
     }
 
@@ -148,6 +147,7 @@ public class StoveBlockEntity extends AbstractFurnaceBlockEntity implements Tick
         this.getWorld().updateListeners(this.getPos(), this.getCachedState(), this.getCachedState(), 3);
     }
 
+
     public void litServerTick() {
         boolean bl = false;
         for (int i = 0; i < this.itemsBeingCooked.size(); ++i) {
@@ -173,7 +173,7 @@ public class StoveBlockEntity extends AbstractFurnaceBlockEntity implements Tick
         if (bl) {
             markDirty();
         }
-        tick();
+        super.tick();
     }
 
     @Override

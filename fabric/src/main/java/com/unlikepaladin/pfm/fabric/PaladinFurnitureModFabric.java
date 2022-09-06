@@ -53,7 +53,7 @@ public class PaladinFurnitureModFabric extends PaladinFurnitureMod implements Mo
             }
             String url = "https://www.curseforge.com/minecraft/mc-mods/arrp/files/3529149";
             MissingDependencyScreen.Screen(reason, url);
-            server.shutdown();
+            server.close();
             throw new RuntimeException("Missing Dependency for Paladin's furniture mod:" + missingMod);
         });
 

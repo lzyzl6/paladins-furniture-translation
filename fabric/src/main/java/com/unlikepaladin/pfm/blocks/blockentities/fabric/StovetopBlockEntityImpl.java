@@ -13,7 +13,7 @@ public class StovetopBlockEntityImpl extends StovetopBlockEntity implements Bloc
 
     @Override
     public void fromClientTag(NbtCompound tag) {
-        readNbt(tag);
+        fromTag(this.getCachedState(), tag);
     }
 
     @Override
