@@ -79,6 +79,7 @@ public class LightSwitch extends HorizontalFacingBlockWEntity implements Waterlo
         if (itemStack.hasTag()) {
             NbtCompound nbtCompound = itemStack.getSubTag("BlockEntityTag");
             if (nbtCompound.contains("lights")) {
+                System.out.println(nbtCompound.get("lights"));
                 lightSwitchBlockEntity.writeNbt(nbtCompound);
             }
         }
@@ -120,7 +121,7 @@ public class LightSwitch extends HorizontalFacingBlockWEntity implements Waterlo
             state = state.with(POWERED, toggleTo);
         }
         else {
-        state = state.cycle(POWERED);}
+            state = state.cycle(POWERED);}
         world.setBlockState(pos, state, 3);
         this.updateNeighbors(state, world, pos);
         lightSwitchBlockEntity = (LightSwitchBlockEntity) world.getBlockEntity(pos);
@@ -189,10 +190,7 @@ public class LightSwitch extends HorizontalFacingBlockWEntity implements Waterlo
         if (lightSwitchBlockEntity != null) {
             this.togglePower(state, world, pos, true, false);
         }
-        if (state.isIn(BlockTags.GUARDED_BY_PIGLINS)) {
-            PiglinBrain.onGuardedBlockInteracted(player, false);
-        }
-        world.syncWorldEvent(player, 2001, pos, getRawIdFromState(state));
+        super.onBreak(world, pos, state, player);
     }
 
     @Nullable

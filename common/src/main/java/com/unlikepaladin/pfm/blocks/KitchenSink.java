@@ -95,6 +95,9 @@ public class KitchenSink extends CauldronBlock implements Waterloggable {
         }
         ItemStack itemStack = player.getStackInHand(hand);
         SinkBehavior sinkBehavior = this.behaviorMap.get(itemStack.getItem());
+            if (sinkBehavior == null) {
+                return ActionResult.PASS;
+            }
         return sinkBehavior.interact(state, world, pos, player, hand, itemStack);
     }
 

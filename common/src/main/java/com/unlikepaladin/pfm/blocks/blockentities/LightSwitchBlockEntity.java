@@ -5,13 +5,11 @@ import com.unlikepaladin.pfm.registry.BlockEntities;
 import com.unlikepaladin.pfm.registry.BlockEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.nbt.NbtLong;
+import net.minecraft.nbt.*;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class LightSwitchBlockEntity extends BlockEntity {
@@ -26,6 +24,7 @@ public class LightSwitchBlockEntity extends BlockEntity {
         super.writeNbt(nbt);
         NbtList tagList = new NbtList();
         lights.forEach(blockPos -> tagList.add(NbtLong.of(blockPos.asLong())));
+        System.out.println("Lights in write:" + lights);
         nbt.put("lights", tagList);
         return nbt;
     }
@@ -33,20 +32,23 @@ public class LightSwitchBlockEntity extends BlockEntity {
     @Override
     public void fromTag(BlockState state, NbtCompound nbt) {
         super.fromTag(state, nbt);
-        if(nbt.contains("lights")){
-            lights.clear();
-            //TODO: Find right number here
-            NbtList lightTagList = nbt.getList("lights", 3);
-            lightTagList.forEach(nbtElement -> addLight(((NbtLong)nbtElement).longValue()));
+        if(nbt.contains("lights", 9)){
+            this.lights.clear();
+            System.out.println("lights in read tag: " + nbt.get("lights"));
+            NbtList lightTagList = nbt.getList("lights", 12);
+            System.out.println("lights in read: " + lightTagList);
+            lightTagList.forEach(nbtElement -> {addLight(((NbtLong)nbtElement).longValue());
+                System.out.println("x:" + nbtElement);
+            });
         }
     }
-
     public void addLight(long pos)
     {
         BlockPos lightPos = BlockPos.fromLong(pos);
-        if(!lights.contains(lightPos))
+        System.out.println("Adding light:" + lightPos);
+        if(!this.lights.contains(lightPos))
         {
-            lights.add(lightPos);
+            this.lights.add(lightPos);
         }
     }
     public void isLightValid(){

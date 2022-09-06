@@ -7,28 +7,24 @@ import com.unlikepaladin.pfm.entity.render.*;
 import com.unlikepaladin.pfm.registry.BlockEntities;
 import com.unlikepaladin.pfm.registry.Entities;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fmllegacy.network.NetworkEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = "pfm", bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class EntityRenderRegistryForge {
     @SubscribeEvent
-    public static void registerRender(EntityRenderersEvent.RegisterRenderers renderersEvent){
-        renderersEvent.registerEntityRenderer(Entities.CHAIR, ChairEntityRenderer::new);
+    public static void registerRender(FMLClientSetupEvent renderersEvent){
+        RenderingRegistry.registerEntityRenderingHandler(Entities.CHAIR, ChairEntityRenderer::new);
     }
 
     @SubscribeEvent
-    public static void registerBlockEntityRender(EntityRenderersEvent.RegisterRenderers renderersEvent){
-        renderersEvent.registerBlockEntityRenderer(BlockEntities.MICROWAVE_BLOCK_ENTITY, MicrowaveBlockEntityRenderer::new);
-        renderersEvent.registerBlockEntityRenderer(BlockEntities.STOVE_TOP_BLOCK_ENTITY, StovetopBlockEntityRenderer::new);
-        renderersEvent.registerBlockEntityRenderer(BlockEntities.PLATE_BLOCK_ENTITY, PlateBlockEntityRenderer::new);
-        renderersEvent.registerBlockEntityRenderer(BlockEntities.STOVE_BLOCK_ENTITY, StoveBlockEntityRenderer::new);
-    }
-
-
-    @SubscribeEvent
-    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions registerLayerDefinitions){
+    public static void registerBlockEntityRender(FMLClientSetupEvent renderersEvent){
+        ClientRegistry.bindTileEntityRenderer(BlockEntities.MICROWAVE_BLOCK_ENTITY, MicrowaveBlockEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(BlockEntities.STOVE_TOP_BLOCK_ENTITY, StovetopBlockEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(BlockEntities.PLATE_BLOCK_ENTITY, PlateBlockEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(BlockEntities.STOVE_BLOCK_ENTITY, StoveBlockEntityRenderer::new);
     }
 }

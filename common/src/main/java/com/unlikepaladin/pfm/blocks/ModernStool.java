@@ -57,17 +57,25 @@ public class ModernStool extends BasicChair {
         Direction dir = state.get(FACING);
         if (state.get(TUCKED)) {
             switch (dir) {
-                case WEST: return FACE_WEST_TUCKED;
-                case NORTH: return FACE_NORTH_TUCKED;
-                case SOUTH: return  FACE_SOUTH_TUCKED;
-                default: return FACE_EAST_TUCKED;
+                case WEST:
+                    return FACE_WEST_TUCKED;
+                case NORTH:
+                    return FACE_NORTH_TUCKED;
+                case SOUTH:
+                    return  FACE_SOUTH_TUCKED;
+                default:
+                    return FACE_EAST_TUCKED;
             }
         }
         switch (dir) {
-            case WEST: return MODERN_STOOL_WEST;
-            case NORTH: return MODERN_STOOL;
-            case SOUTH: return MODERN_STOOL_SOUTH;
-            default: return MODERN_STOOL_EAST;
+            case WEST:
+                return MODERN_STOOL_WEST;
+            case NORTH:
+                return MODERN_STOOL;
+            case SOUTH:
+                return MODERN_STOOL_SOUTH;
+            default:
+                return MODERN_STOOL_EAST;
         }
     }
 

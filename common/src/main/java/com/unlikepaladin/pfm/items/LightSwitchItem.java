@@ -51,23 +51,23 @@ public class LightSwitchItem extends BlockItem {
         BlockPos pos = context.getBlockPos();
         BlockState state = context.getWorld().getBlockState(context.getBlockPos());
         Block block = state.getBlock();
-       if(block instanceof PowerableBlock){
-           if (block instanceof PendantBlock){
-               boolean isSingle = (!state.get(PendantBlock.DOWN) && !state.get(PendantBlock.UP));
-               boolean isRoot = (state.get(PendantBlock.DOWN) && !state.get(PendantBlock.UP));
+        if(block instanceof PowerableBlock){
+            if (block instanceof PendantBlock){
+                boolean isSingle = (!state.get(PendantBlock.DOWN) && !state.get(PendantBlock.UP));
+                boolean isRoot = (state.get(PendantBlock.DOWN) && !state.get(PendantBlock.UP));
 
-               if (isSingle || isRoot) {
+                if (isSingle || isRoot) {
                     addLight(context.getStack(), pos);
-               }
-               else {
+                }
+                else {
                     if (context.getWorld().isClient)
                         context.getPlayer().sendMessage(new TranslatableText("message.pfm.light_switch_not_canopy"), false);
-               }
+                }
 
-           }
-           else {
-               addLight(context.getStack(), pos);
-           }
+            }
+            else {
+                addLight(context.getStack(), pos);
+            }
             return ActionResult.SUCCESS;
         }
 
@@ -81,14 +81,14 @@ public class LightSwitchItem extends BlockItem {
         if (getLights(context.getStack()) != null) {
             NbtList lights = getLights(context.getStack());
             Direction facing = context.getPlayerFacing();
-                for(int i = 0; i < lights.size(); i++)
-                {
-                    NbtElement nbtElement = lights.get(i);
-                    BlockPos lightPos = BlockPos.fromLong(((NbtLong) nbtElement).longValue());
-                    BlockPos placedPos = pos.offset(facing);
-                    double distance = Math.sqrt(lightPos.getSquaredDistance(placedPos.getX() + 0.5, placedPos.getY() + 0.5, placedPos.getZ() + 0.5, true));
-                    return !(distance > 16) && state.getBlock().canPlaceAt(state, world, pos);
-                }
+            for(int i = 0; i < lights.size(); i++)
+            {
+                NbtElement nbtElement = lights.get(i);
+                BlockPos lightPos = BlockPos.fromLong(((NbtLong) nbtElement).longValue());
+                BlockPos placedPos = pos.offset(facing);
+                double distance = Math.sqrt(lightPos.getSquaredDistance(placedPos.getX() + 0.5, placedPos.getY() + 0.5, placedPos.getZ() + 0.5, true));
+                return !(distance > 16) && state.getBlock().canPlaceAt(state, world, pos);
+            }
 
         }
         return state.getBlock().canPlaceAt(state, world, pos);
@@ -97,13 +97,13 @@ public class LightSwitchItem extends BlockItem {
     private void addLight(ItemStack stack, BlockPos pos)
     {
         NbtCompound tagCompound = createTag(stack);
-        if(!tagCompound.contains("BlockEntityTag"))
+        if(!tagCompound.contains("BlockEntityTag", 10))
         {
             tagCompound.put("BlockEntityTag", new NbtCompound());
         }
 
         NbtCompound entityTagCompound = tagCompound.getCompound("BlockEntityTag");
-        if(!entityTagCompound.contains("lights"))
+        if(!entityTagCompound.contains("lights", 9))
         {
             entityTagCompound.put("lights", new NbtList());
         }
@@ -132,10 +132,10 @@ public class LightSwitchItem extends BlockItem {
     public static NbtList getLights(ItemStack stack)
     {
         NbtCompound tagCompound = createTag(stack);
-        if(tagCompound.contains("BlockEntityTag"))
+        if(tagCompound.contains("BlockEntityTag", 10))
         {
             NbtCompound entityTagCompound = tagCompound.getCompound("BlockEntityTag");
-            if(entityTagCompound.contains("lights"))
+            if(entityTagCompound.contains("lights", 9))
             {
                 return (NbtList) entityTagCompound.get("lights");
             }

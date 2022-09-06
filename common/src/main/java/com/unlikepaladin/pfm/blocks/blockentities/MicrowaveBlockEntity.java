@@ -137,7 +137,7 @@ public class MicrowaveBlockEntity extends LockableContainerBlockEntity implement
         if (!this.removed && !player.isSpectator()) {
             --this.viewerCount;
             MicrowaveBlockEntity.this.playSound(getCachedState(), SoundEvents.BLOCK_IRON_TRAPDOOR_CLOSE, 0);
-            MicrowaveBlockEntity.this.setOpen(getCachedState(), true);
+            MicrowaveBlockEntity.this.setOpen(getCachedState(), false);
         }
     }
 

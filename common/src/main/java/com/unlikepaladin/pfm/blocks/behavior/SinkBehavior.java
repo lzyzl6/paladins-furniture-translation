@@ -31,7 +31,7 @@ public interface SinkBehavior {
 
     static Object2ObjectOpenHashMap<Item, SinkBehavior> createMap() {
         return (Object2ObjectOpenHashMap)Util.make(new Object2ObjectOpenHashMap(), (map) -> {
-            map.defaultReturnValue(ActionResult.PASS);});
+            map.defaultReturnValue(null);});
     }
 
     public ActionResult interact(BlockState var1, World var2, BlockPos var3, PlayerEntity var4, Hand var5, ItemStack var6);
