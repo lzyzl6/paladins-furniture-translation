@@ -34,18 +34,13 @@ public class LightSwitchBlockEntity extends BlockEntity {
         super.fromTag(state, nbt);
         if(nbt.contains("lights", 9)){
             this.lights.clear();
-            System.out.println("lights in read tag: " + nbt.get("lights"));
-            NbtList lightTagList = nbt.getList("lights", 12);
-            System.out.println("lights in read: " + lightTagList);
-            lightTagList.forEach(nbtElement -> {addLight(((NbtLong)nbtElement).longValue());
-                System.out.println("x:" + nbtElement);
-            });
+            NbtList lightTagList = nbt.getList("lights", 4);
+            lightTagList.forEach(nbtElement -> addLight(((NbtLong)nbtElement).longValue()));
         }
     }
     public void addLight(long pos)
     {
         BlockPos lightPos = BlockPos.fromLong(pos);
-        System.out.println("Adding light:" + lightPos);
         if(!this.lights.contains(lightPos))
         {
             this.lights.add(lightPos);

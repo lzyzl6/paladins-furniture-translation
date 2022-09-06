@@ -63,7 +63,6 @@ public class LightSwitchItem extends BlockItem {
                     if (context.getWorld().isClient)
                         context.getPlayer().sendMessage(new TranslatableText("message.pfm.light_switch_not_canopy"), false);
                 }
-
             }
             else {
                 addLight(context.getStack(), pos);

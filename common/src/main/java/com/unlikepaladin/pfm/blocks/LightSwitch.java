@@ -79,7 +79,6 @@ public class LightSwitch extends HorizontalFacingBlockWEntity implements Waterlo
         if (itemStack.hasTag()) {
             NbtCompound nbtCompound = itemStack.getSubTag("BlockEntityTag");
             if (nbtCompound.contains("lights")) {
-                System.out.println(nbtCompound.get("lights"));
                 lightSwitchBlockEntity.writeNbt(nbtCompound);
             }
         }
