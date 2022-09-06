@@ -34,6 +34,7 @@ import me.shedaniel.rei.server.ContainerInfo;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
@@ -42,28 +43,49 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
 
-public interface FurnitureDisplay<C extends FurnitureRecipe> extends TransferRecipeDisplay {
+public class FurnitureDisplay implements TransferRecipeDisplay {
+
+    FurnitureRecipe display;
+    List<List<EntryStack>> input;
+    List<EntryStack> output;
+    public FurnitureDisplay(FurnitureRecipe recipe) {
+        this.display = recipe;
+        this.input = EntryStack.ofIngredients(recipe.getIngredients());
+        this.output = Collections.singletonList(EntryStack.create(recipe.getOutput()));
+    }
+
     @Override
-    default @NotNull Identifier getRecipeCategory() {
+    public @NotNull List<List<EntryStack>> getInputEntries() {
+        return input;
+    }
+
+    @Override
+    @NotNull
+    public Identifier getRecipeCategory() {
         return IDENTIFIER;
     }
 
     @Override
-    default int getWidth() {
-        return 2;
+    public int getWidth() {
+        return display.getWidth();
     }
 
     @Override
-    default int getHeight() {
-        return 2;
+    public int getHeight() {
+        return display.getHeight();
+    }
+    @Override
+    public @NotNull List<List<EntryStack>> getRequiredEntries() {
+        return input;
+    }
+    public @NotNull List<List<EntryStack>> getResultingEntries() {
+        return Collections.singletonList(output);
     }
 
-    Identifier IDENTIFIER = new Identifier(PaladinFurnitureMod.MOD_ID, "plugins/shaped");
-
-    Optional<Recipe<?>> getOptionalRecipe();
+    public static Identifier IDENTIFIER = new Identifier(PaladinFurnitureMod.MOD_ID, "plugins/shaped");
 
     @Override
-    default List<List<EntryStack>> getOrganisedInputEntries(ContainerInfo<ScreenHandler> containerInfo, ScreenHandler container) {
+    public List<List<EntryStack>> getOrganisedInputEntries(ContainerInfo<ScreenHandler> containerInfo, ScreenHandler container) {
         List<List<EntryStack>> list = Lists.newArrayListWithCapacity(containerInfo.getCraftingWidth(container) * containerInfo.getCraftingHeight(container));
         for (int i = 0; i < containerInfo.getCraftingWidth(container) * containerInfo.getCraftingHeight(container); i++) {
             list.add(Collections.emptyList());
@@ -74,4 +96,10 @@ public interface FurnitureDisplay<C extends FurnitureRecipe> extends TransferRec
         }
         return list;
     }
+
+    @Override
+    public @NotNull Optional<Identifier> getRecipeLocation() {
+        return Optional.ofNullable(display).map(FurnitureRecipe::getId);
+    }
+
 }

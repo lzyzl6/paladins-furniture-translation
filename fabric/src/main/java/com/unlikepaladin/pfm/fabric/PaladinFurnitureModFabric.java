@@ -27,7 +27,7 @@ import org.apache.logging.log4j.Logger;
 
 import static com.unlikepaladin.pfm.PaladinFurnitureMod.MOD_ID;
 
-public class PaladinFurnitureModFabric extends PaladinFurnitureMod implements ModInitializer {
+public class  PaladinFurnitureModFabric extends PaladinFurnitureMod implements ModInitializer {
 
     public static final Identifier FURNITURE_DYED_ID = new Identifier("pfm:furniture_dyed");
     public static SoundEvent FURNITURE_DYED_EVENT = new SoundEvent(FURNITURE_DYED_ID);

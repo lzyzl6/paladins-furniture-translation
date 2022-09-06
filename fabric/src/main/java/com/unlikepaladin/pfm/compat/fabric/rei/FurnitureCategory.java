@@ -13,7 +13,6 @@ import me.shedaniel.rei.api.widgets.Widgets;
 import me.shedaniel.rei.gui.widget.Widget;
 import me.shedaniel.rei.plugin.DefaultPlugin;
 import me.shedaniel.rei.plugin.crafting.DefaultCraftingDisplay;
-import me.shedaniel.rei.plugin.crafting.DefaultShapedDisplay;
 import me.shedaniel.rei.server.ContainerInfo;
 import me.shedaniel.rei.server.ContainerInfoHandler;
 import net.minecraft.block.Blocks;
@@ -70,7 +69,7 @@ public class FurnitureCategory implements TransferRecipeCategory<FurnitureDispla
             for (int x = 0; x < 3; x++)
                 slots.add(Widgets.createSlot(new Point(startPoint.x + 1 + x * 18, startPoint.y + 1 + y * 18)).markInput());
         for (int i = 0; i < input.size(); i++) {
-            if (display instanceof DefaultShapedDisplay) {
+            if (display instanceof FurnitureDisplay) {
                 if (!input.get(i).isEmpty())
                     slots.get(getSlotWithSize(display, i, 3)).entries(input.get(i));
             } else if (!input.get(i).isEmpty())

@@ -15,6 +15,8 @@ import me.shedaniel.rei.plugin.campfire.DefaultCampfireCategory;
 import me.shedaniel.rei.plugin.cooking.DefaultCookingCategory;
 import me.shedaniel.rei.plugin.crafting.DefaultShapedDisplay;
 import me.shedaniel.rei.plugin.smoking.DefaultSmokingDisplay;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.CraftingScreen;
 import net.minecraft.client.gui.screen.ingame.SmokerScreen;
 import net.minecraft.item.Items;
@@ -24,19 +26,21 @@ import net.minecraft.recipe.ShapedRecipe;
 import net.minecraft.recipe.SmokingRecipe;
 import net.minecraft.util.Identifier;
 
+
+@Environment(EnvType.CLIENT)
 public class PaladinFurnitureModREIPlugin implements REIPluginV0 {
 
     @Override
     public void registerPluginCategories(RecipeHelper recipeHelper) {
         recipeHelper.registerCategories(
                 new FurnitureCategory(),
-                new DefaultCookingCategory(FreezingDisplay.IDENTIFIER, EntryStack.create(Items.BLAST_FURNACE), "category.pfm.freezing")
+                new FreezingCategory(FreezingDisplay.IDENTIFIER, EntryStack.create(PaladinFurnitureModBlocksItems.WHITE_FRIDGE), "rei.pfm.freezer")
                 );
     }
 
     @Override
     public void registerRecipeDisplays(RecipeHelper recipeHelper) {
-        recipeHelper.registerRecipes(FurnitureDisplay.IDENTIFIER, (Recipe recipe) -> recipe instanceof FurnitureRecipe && recipe.getType() == RecipeTypes.FURNITURE_RECIPE, ShapedDisplay::new);
+        recipeHelper.registerRecipes(FurnitureDisplay.IDENTIFIER, FurnitureRecipe.class , FurnitureDisplay::new);
         recipeHelper.registerRecipes(FreezingDisplay.IDENTIFIER, FreezingRecipe.class, FreezingDisplay::new);
     }
 
@@ -50,6 +54,6 @@ public class PaladinFurnitureModREIPlugin implements REIPluginV0 {
 
     @Override
     public Identifier getPluginIdentifier() {
-        return new Identifier("pfm:rei_plugin");
+        return new Identifier("pfm:pfm");
     }
 }
