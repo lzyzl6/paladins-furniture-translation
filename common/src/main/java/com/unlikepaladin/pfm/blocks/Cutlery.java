@@ -95,6 +95,7 @@ public class Cutlery extends HorizontalFacingBlock implements Waterloggable {
         if(block instanceof Plate) {
             BlockState newState = block.getDefaultState();
             world.setBlockState(pos, newState.with(Plate.CUTLERY, true).with(FACING, state.get(FACING)).with(WATERLOGGED, state.get(WATERLOGGED)));
+            itemStack.decrement(1);
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hit);

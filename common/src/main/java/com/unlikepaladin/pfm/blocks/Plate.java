@@ -71,6 +71,7 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
             return ActionResult.CONSUME;
         }
         if(Registry.BLOCK.get(Registry.ITEM.getId(itemStack.getItem())) instanceof Cutlery) {
+            itemStack.decrement(1);
             world.setBlockState(pos, state.with(CUTLERY, true));
             return ActionResult.SUCCESS;
         }
