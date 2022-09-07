@@ -193,11 +193,6 @@ public class FurnitureRecipe implements IFurnitureRecipe {
         return m;
     }
 
-    public boolean isEmpty() {
-        DefaultedList<Ingredient> defaultedList = this.getIngredients();
-        return defaultedList.isEmpty() || defaultedList.stream().filter(ingredient -> !ingredient.isEmpty()).anyMatch(ingredient -> ingredient.getMatchingStacksClient().length == 0);
-    }
-
     private static int findFirstSymbol(String line) {
         int i;
         for (i = 0; i < line.length() && line.charAt(i) == ' '; ++i) {
