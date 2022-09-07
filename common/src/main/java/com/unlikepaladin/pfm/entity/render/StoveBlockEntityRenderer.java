@@ -47,6 +47,7 @@ public class StoveBlockEntityRenderer<T extends StoveBlockEntity>
                     break;
                 case EAST:
                     matrices.translate(0.5, 1.02, 0.5);
+                    break;
             }
             rot = 180;
             matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(g));

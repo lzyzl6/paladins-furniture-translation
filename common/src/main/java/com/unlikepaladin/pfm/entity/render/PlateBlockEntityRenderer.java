@@ -29,12 +29,20 @@ public class PlateBlockEntityRenderer<T extends PlateBlockEntity> extends BlockE
         Direction direction2 = Direction.fromHorizontal((direction.getHorizontal()) % 4);
         float g = -direction2.asRotation();
         Direction dir = plateBlockEntity.getCachedState().get(Plate.FACING);
-        switch (dir) {
-            case NORTH: matrices.translate(0.5, 0.08, 0.65);
-            case SOUTH: matrices.translate(0.5, 0.08, 0.35);
-            case WEST: matrices.translate(0.65, 0.08, 0.5);
-            case EAST: matrices.translate(0.35, 0.08, 0.5);
+
+        if (dir == Direction.NORTH) {
+            matrices.translate(0.5, 0.08, 0.65);
         }
+        else if (dir == Direction.SOUTH) {
+            matrices.translate(0.5, 0.08, 0.35);
+        }
+        else if (dir == Direction.WEST) {
+            matrices.translate(0.65, 0.08, 0.5);
+        }
+        else {
+            matrices.translate(0.35, 0.08, 0.5);
+        }
+
         int rot = 90;
         matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(g));
         matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(rot));
