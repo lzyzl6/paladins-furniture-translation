@@ -43,7 +43,7 @@ public class KitchenCounterOven extends SmokerBlock implements Waterloggable {
         else if (this.getClass().isAssignableFrom(KitchenCounterOven.class)){
             STONE_COUNTER_OVENS.add(new FurnitureBlock(this, "kitchen_counter_oven"));
         }
-        setDefaultState(this.getStateManager().getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(LIT, false));
+        setDefaultState(this.getStateManager().getDefaultState().with(WATERLOGGED, false).with(FACING, Direction.NORTH).with(LIT, false).with(OPEN, false));
     }
 
     public static Stream<FurnitureBlock> streamWoodCounterOvens() {
@@ -55,6 +55,7 @@ public class KitchenCounterOven extends SmokerBlock implements Waterloggable {
 
     public static final BooleanProperty UP = Properties.UP;
     public static final BooleanProperty DOWN = Properties.DOWN;
+    public static final BooleanProperty OPEN = Properties.OPEN;
 
     @Override
     public BlockEntity createBlockEntity(BlockView world) {
@@ -68,6 +69,7 @@ public class KitchenCounterOven extends SmokerBlock implements Waterloggable {
         builder.add(UP);
         builder.add(DOWN);
         builder.add(WATERLOGGED);
+        builder.add(OPEN);
         super.appendProperties(builder);
     }
     public static boolean connectsVertical(Block block) {
