@@ -1,8 +1,11 @@
 package com.unlikepaladin.pfm.blocks;
 
 import com.unlikepaladin.pfm.blocks.behavior.SinkBehavior;
+import com.unlikepaladin.pfm.blocks.blockentities.SinkBlockEntity;
+import com.unlikepaladin.pfm.blocks.blockentities.ToiletBlockEntity;
 import com.unlikepaladin.pfm.data.FurnitureBlock;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluid;
@@ -11,6 +14,9 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
@@ -27,6 +33,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.biome.Biome;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +44,7 @@ import java.util.stream.Stream;
 
 import static net.minecraft.block.Block.createCuboidShape;
 
-public class KitchenSink extends CauldronBlock implements Waterloggable {
+public class KitchenSink extends CauldronBlock implements Waterloggable, BlockEntityProvider {
     private final BlockState baseBlockState;
     private final Block baseBlock;
     public static final IntProperty LEVEL_4 = IntProperty.of("level", 0, 3);
@@ -85,9 +92,13 @@ public class KitchenSink extends CauldronBlock implements Waterloggable {
             BlockState sourceState = world.getBlockState(sourcePos);
             if (sourceState.getFluidState().getFluid() == Fluids.WATER && !sourceState.getFluidState().isEmpty()) {
                 if (sourceState.getProperties().contains(Properties.WATERLOGGED)) {
-                world.setBlockState(sourcePos, sourceState.with(Properties.WATERLOGGED, false)); }
+                    world.setBlockState(sourcePos, sourceState.with(Properties.WATERLOGGED, false)); }
                 else {
                     world.setBlockState(sourcePos, Blocks.AIR.getDefaultState());
+                }
+                SinkBlockEntity blockEntity = (SinkBlockEntity) world.getBlockEntity(pos);
+                if (blockEntity != null) {
+                    blockEntity.setFilling(true);
                 }
                 world.setBlockState(pos, state.with(LEVEL_4, 3));
                 return ActionResult.SUCCESS;
@@ -101,6 +112,15 @@ public class KitchenSink extends CauldronBlock implements Waterloggable {
         return sinkBehavior.interact(state, world, pos, player, hand, itemStack);
     }
 
+    public static void spawnParticles(World world, BlockPos pos) {
+        if (world.isClient) {
+            int x = pos.getX(), y = pos.getY(), z = pos.getZ();
+            world.addParticle(ParticleTypes.FALLING_WATER, x + 0.76, y + 1.18, z + 0.5, 0.0, 0.0, 0.0);
+            world.addParticle(ParticleTypes.FALLING_WATER, x + 0.76, y + 1.18, z + 0.5, 0.0, 0.0, 0.0);
+            world.addParticle(ParticleTypes.FALLING_WATER, x + 0.76, y + 1.18, z + 0.5, 0.0, 0.0, 0.0);
+        }
+    }
+
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
@@ -108,6 +128,11 @@ public class KitchenSink extends CauldronBlock implements Waterloggable {
         }
 
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 
     @Override
@@ -210,5 +235,11 @@ public class KitchenSink extends CauldronBlock implements Waterloggable {
             return 20;
         }
         return 0;
+    }
+
+    @Nullable
+    @Override
+    public BlockEntity createBlockEntity(BlockView world) {
+        return new SinkBlockEntity();
     }
 }
