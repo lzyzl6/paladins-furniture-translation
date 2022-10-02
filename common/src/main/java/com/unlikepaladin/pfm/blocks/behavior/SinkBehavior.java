@@ -25,7 +25,7 @@ import java.util.function.Predicate;
 
 public interface SinkBehavior {
 
-    SinkBehavior FILL_SINK_WITH_WATER = (state, world, pos, player, hand, stack) -> SinkBehavior.fillCauldron(world, pos, player, hand, stack, state.with(KitchenSink.LEVEL_4, 3), SoundEvents.ITEM_BUCKET_EMPTY);
+    SinkBehavior FILL_SINK_WITH_WATER = (state, world, pos, player, hand, stack) -> SinkBehavior.fillSink(world, pos, player, hand, stack, state.with(KitchenSink.LEVEL_4, 3), SoundEvents.ITEM_BUCKET_EMPTY);
     Map<Item, SinkBehavior> WATER_SINK_BEHAVIOR = SinkBehavior.createMap();
 
 
@@ -99,7 +99,7 @@ public interface SinkBehavior {
         return ActionResult.success(world.isClient);
     };
 
-    static ActionResult fillCauldron(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, BlockState state, SoundEvent soundEvent) {
+    static ActionResult fillSink(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, BlockState state, SoundEvent soundEvent) {
         if (!world.isClient) {
             Item item = stack.getItem();
             player.setStackInHand(hand, ItemUsage.method_30012(stack, player, new ItemStack(Items.BUCKET)));
