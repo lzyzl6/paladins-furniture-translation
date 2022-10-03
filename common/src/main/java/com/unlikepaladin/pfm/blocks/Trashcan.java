@@ -52,7 +52,7 @@ public class Trashcan extends BlockWithEntity {
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockView world) {
-        return new TrashcanBlockEntity();
+        return getBlockEntity();
     }
     @ExpectPlatform
     public static BlockEntity getBlockEntity() {
@@ -71,7 +71,7 @@ public class Trashcan extends BlockWithEntity {
         }
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof TrashcanBlockEntity) {
-          openScreen(player, state, world, pos);
+            openScreen(player, state, world, pos);
             player.incrementStat(Statistics.TRASHCAN_OPENED);
         }
         return ActionResult.CONSUME;

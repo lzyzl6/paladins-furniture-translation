@@ -60,6 +60,8 @@ public class ColorRegistryForge {
         RenderLayers.setRenderLayer(PaladinFurnitureModBlocksItems.XBOX_FRIDGE, RenderLayer.getCutout());
         RenderLayers.setRenderLayer(PaladinFurnitureModBlocksItems.GRAY_FRIDGE, RenderLayer.getCutout());
         RenderLayers.setRenderLayer(PaladinFurnitureModBlocksItems.WHITE_FRIDGE, RenderLayer.getCutout());
+        RenderLayers.setRenderLayer(PaladinFurnitureModBlocksItems.MESH_TRASHCAN, RenderLayer.getCutout());
+
         List<Block> ovens = new ArrayList<>();
         KitchenCounterOven.streamStoneCounterOvens().map(FurnitureBlock::getBlock).forEach(ovens::add);
         KitchenCounterOven.streamWoodCounterOvens().map(FurnitureBlock::getBlock).forEach(ovens::add);
