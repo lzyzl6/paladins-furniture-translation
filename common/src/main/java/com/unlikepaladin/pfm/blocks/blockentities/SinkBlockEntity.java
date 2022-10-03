@@ -10,6 +10,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.Vec3i;
 
@@ -58,7 +59,7 @@ public class SinkBlockEntity extends BlockEntity implements Tickable {
                 this.setFilling(false);
             } else {
                 if (world.isClient) {
-                    KitchenSink.spawnParticles(this.world, this.getPos());
+                    KitchenSink.spawnParticles(this.getCachedState().get(Properties.HORIZONTAL_FACING), this.world, this.getPos());
                 }
                 this.sinkTimer++;
             }
