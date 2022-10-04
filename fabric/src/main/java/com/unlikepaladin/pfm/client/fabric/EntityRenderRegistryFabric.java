@@ -15,6 +15,7 @@ public class EntityRenderRegistryFabric {
         BlockEntityRendererRegistry.INSTANCE.register(BlockEntities.STOVE_TOP_BLOCK_ENTITY, StovetopBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(BlockEntities.PLATE_BLOCK_ENTITY, PlateBlockEntityRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(BlockEntities.STOVE_BLOCK_ENTITY, StoveBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(BlockEntities.TRASHCAN_BLOCK_ENTITY, TrashcanBlockEntityRenderer::new);
     }
 
 }

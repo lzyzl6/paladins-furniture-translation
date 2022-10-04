@@ -26,5 +26,6 @@ public class EntityRenderRegistryForge {
         ClientRegistry.bindTileEntityRenderer(BlockEntities.STOVE_TOP_BLOCK_ENTITY, StovetopBlockEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(BlockEntities.PLATE_BLOCK_ENTITY, PlateBlockEntityRenderer::new);
         ClientRegistry.bindTileEntityRenderer(BlockEntities.STOVE_BLOCK_ENTITY, StoveBlockEntityRenderer::new);
+        ClientRegistry.bindTileEntityRenderer(BlockEntities.TRASHCAN_BLOCK_ENTITY, TrashcanBlockEntityRenderer::new);
     }
 }
