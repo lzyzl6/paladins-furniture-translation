@@ -25,6 +25,8 @@ import java.util.stream.Stream;
 
 public class PaladinFurnitureModBlocksItems {
     public static final List<Block> BLOCKS = new ArrayList<>();
+    public static final List<Item> PFM_TAB_ITEMS = new ArrayList<>();
+
 
     public static final Block OAK_CHAIR = new BasicChair(AbstractBlock.Settings.of(Material.WOOD).strength(2.0f).resistance(2.0f).nonOpaque().sounds(BlockSoundGroup.WOOD).mapColor(MapColor.OAK_TAN));
     public static final Block BIRCH_CHAIR = new BasicChair(AbstractBlock.Settings.copy(OAK_CHAIR).mapColor(MapColor.PALE_YELLOW));

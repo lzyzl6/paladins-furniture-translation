@@ -16,6 +16,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.Registries;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -26,7 +27,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -70,7 +71,7 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
             }
             return ActionResult.CONSUME;
         }
-        if(Registry.BLOCK.get(Registry.ITEM.getId(itemStack.getItem())) instanceof Cutlery) {
+        if(Registries.BLOCK.get(Registries.ITEM.getId(itemStack.getItem())) instanceof Cutlery) {
             world.setBlockState(pos, state.with(CUTLERY, true));
             return ActionResult.SUCCESS;
         }
@@ -91,7 +92,7 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
                 if (!plateBlockEntity.getItemInPlate().isEmpty()) {
                     ItemStack stack = plateBlockEntity.getItemInPlate();
                     spawnItemParticles(player, stack, 16);
-                    if (Registry.ITEM.getId(stack.getItem()).toString().equals("sandwichable:sandwich")) {
+                    if (Registries.ITEM.getId(stack.getItem()).toString().equals("sandwichable:sandwich")) {
                        eatSandwich(stack, world, player);
                     }
                     else {
@@ -155,7 +156,7 @@ public class Plate extends HorizontalFacingBlockWEntity implements Waterloggable
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
-            world.createAndScheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
         if (!state.canPlaceAt(world, pos)) {
             if (state.get(CUTLERY)) {

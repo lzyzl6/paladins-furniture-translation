@@ -1,5 +1,5 @@
 package com.unlikepaladin.pfm.compat.fabric.jei;
-
+/*
 import com.unlikepaladin.pfm.PaladinFurnitureMod;
 import com.unlikepaladin.pfm.recipes.FurnitureRecipe;
 import com.unlikepaladin.pfm.registry.PaladinFurnitureModBlocksItems;
@@ -65,4 +65,4 @@ public class FurnitureCategory implements IRecipeCategory<FurnitureRecipe> {
         craftingGridHelper.createAndSetOutputs(builder, VanillaTypes.ITEM_STACK, List.of(resultItem));
         craftingGridHelper.createAndSetInputs(builder, VanillaTypes.ITEM_STACK, inputs, width, height);
     }
-}
+}*/

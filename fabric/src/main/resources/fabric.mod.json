@@ -44,7 +44,7 @@
       "pfm.mixins.json"
   ],
   "depends": {
-    "fabric": "*",
+    "fabric-api": "*",
     "minecraft": "1.19.x"
     }
 }
