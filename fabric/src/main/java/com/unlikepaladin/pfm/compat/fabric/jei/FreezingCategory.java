@@ -1,5 +1,5 @@
 package com.unlikepaladin.pfm.compat.fabric.jei;
-/*
+
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -132,4 +132,4 @@ public class FreezingCategory implements IRecipeCategory<FreezingRecipe>  {
         drawExperience(recipe, poseStack, 0);
         drawFreezeTime(recipe, poseStack, 45);
     }
-}*/
+}

@@ -1,5 +1,5 @@
 package com.unlikepaladin.pfm.compat.fabric.jei;
-/*
+
 import com.unlikepaladin.pfm.PaladinFurnitureMod;
 import com.unlikepaladin.pfm.recipes.FreezingRecipe;
 import com.unlikepaladin.pfm.recipes.FurnitureRecipe;
@@ -62,4 +62,4 @@ public class PaladinFurnitureModJEIPlugin implements IModPlugin {
     public Identifier getPluginUid() {
         return new Identifier(PaladinFurnitureMod.MOD_ID, "jei_plugin");
     }
-}*/
+}
