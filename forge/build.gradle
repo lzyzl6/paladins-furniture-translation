@@ -50,7 +50,7 @@ dependencies {
     forge "net.minecraftforge:forge:${rootProject.forge_version}"
 
     modCompileOnly("vazkii.patchouli:Patchouli:${rootProject.patchouli_version_forge}")
-    modCompileOnly("mezz.jei:jei-${rootProject.minecraft_version}-forge:${rootProject.jei_version}")
+    modCompileOnly("mezz.jei:jei-1.19.2-forge:${rootProject.jei_version}")
 
     modApi("me.shedaniel.cloth:cloth-config-forge:${rootProject.cloth_config_version}")
 

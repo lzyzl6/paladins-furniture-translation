@@ -129,7 +129,7 @@ else {
 }
 if (rootProject.jei_compatibility == "true") {
     dependencies {
-        modImplementation("mezz.jei:jei-1.19-fabric:${rootProject.jei_version_fabric}") {
+        modImplementation("mezz.jei:jei-1.19.2-fabric:${rootProject.jei_version_fabric}") {
             exclude group: "mezz.jei"
         }
     }
@@ -137,7 +137,7 @@ if (rootProject.jei_compatibility == "true") {
 else{
     dependencies {
         // compile against the JEI API but do not include it at runtime
-        modImplementation("mezz.jei:jei-1.19-fabric:${rootProject.jei_version_fabric}") {
+        modImplementation("mezz.jei:jei-1.19.2-fabric:${rootProject.jei_version_fabric}") {
             exclude group: "mezz.jei"
         }
     }
